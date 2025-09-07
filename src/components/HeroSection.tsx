@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-farming.jpg";
 
 const HeroSection = () => {
@@ -24,16 +25,20 @@ const HeroSection = () => {
             disease recognition, and personalized recommendations based on your needs and budget.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-              Get Started
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white/10 hover:text-white"
-            >
-              Learn More
-            </Button>
+            <Link to="/schemes">
+              <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+                Get Started
+              </Button>
+            </Link>
+            <Link to="/climate">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white/10 hover:text-white"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
