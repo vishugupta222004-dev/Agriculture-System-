@@ -2,17 +2,20 @@ import { Button } from "@/components/ui/button";
 import { Leaf, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Schemes", href: "/schemes" },
-    { name: "Climate", href: "/climate" },
-    { name: "Disease Detection", href: "/disease-detection" },
-    { name: "Voice Support", href: "/voice-support" },
-    { name: "Contact", href: "/contact" },
+    { name: t('nav.home'), href: "/" },
+    { name: t('nav.schemes'), href: "/schemes" },
+    { name: t('nav.climate'), href: "/climate" },
+    { name: t('nav.disease-detection'), href: "/disease-detection" },
+    { name: t('nav.voice-support'), href: "/voice-support" },
+    { name: t('nav.contact'), href: "/contact" },
   ];
 
   return (
@@ -40,11 +43,12 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Get Started Button */}
-          <div className="hidden md:flex">
+          {/* Language Selector and Get Started Button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSelector />
             <Link to="/schemes">
               <Button variant="hero" size="lg">
-                Get Started
+                {t('nav.get-started')}
               </Button>
             </Link>
           </div>
@@ -75,9 +79,12 @@ const Header = () => {
               <div className="px-4 pt-4">
                 <Link to="/schemes" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="hero" className="w-full">
-                    Get Started
+                    {t('nav.get-started')}
                   </Button>
                 </Link>
+                <div className="mt-4">
+                  <LanguageSelector />
+                </div>
               </div>
             </nav>
           </div>

@@ -1,18 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Languages } from "lucide-react";
+import { useLanguage, languages } from "@/contexts/LanguageContext";
 
 const LanguageSupport = () => {
-  const languages = [
-    { name: "English", code: "EN" },
-    { name: "हिंदी", code: "HI" },
-    { name: "മലയാളം", code: "ML" },
-    { name: "తెలుగు", code: "TE" },
-    { name: "தமிழ்", code: "TA" },
-    { name: "ಕನ್ನಡ", code: "KN" },
-    { name: "मराठी", code: "MR" },
-    { name: "বাংলা", code: "BN" },
-  ];
+  const { t } = useLanguage();
 
   return (
     <section className="py-16">
@@ -23,10 +15,10 @@ const LanguageSupport = () => {
               <Languages className="h-8 w-8 text-primary-foreground" />
             </div>
             <CardTitle className="text-2xl md:text-3xl font-bold text-primary">
-              Multi-Language Support
+              {t('language.title')}
             </CardTitle>
             <p className="text-muted-foreground">
-              Access farming support in your preferred language for better understanding and communication
+              {t('language.description')}
             </p>
           </CardHeader>
           <CardContent>
@@ -37,12 +29,12 @@ const LanguageSupport = () => {
                   variant="outline" 
                   className="px-4 py-2 text-sm border-primary/20 hover:bg-primary/10 transition-colors"
                 >
-                  {language.name}
+                  {language.flag} {language.nativeName}
                 </Badge>
               ))}
             </div>
             <p className="text-center text-sm text-muted-foreground mt-6">
-              Voice support and text assistance available in all listed languages
+              {t('language.support-text')}
             </p>
           </CardContent>
         </Card>

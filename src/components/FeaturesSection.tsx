@@ -1,4 +1,5 @@
 import FeatureCard from "./FeatureCard";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { 
   FileText, 
   Cloud, 
@@ -9,47 +10,49 @@ import {
 } from "lucide-react";
 
 const FeaturesSection = () => {
+  const { t } = useLanguage();
+
   const features = [
     {
       icon: FileText,
-      title: "Government Schemes",
-      description: "Access MSP schemes, central & state government loans, subsidies on pesticides and farming equipment.",
-      buttonText: "View Schemes",
+      title: t('features.schemes.title'),
+      description: t('features.schemes.description'),
+      buttonText: t('features.schemes.button'),
       buttonVariant: "agriculture" as const,
     },
     {
       icon: Cloud,
-      title: "Climate Predictions",
-      description: "Get AI-powered weather forecasts and climate insights to plan your crops effectively for better yields.",
-      buttonText: "Check Weather",
+      title: t('features.climate.title'),
+      description: t('features.climate.description'),
+      buttonText: t('features.climate.button'),
       buttonVariant: "default" as const,
     },
     {
       icon: Camera,
-      title: "Disease Detection",
-      description: "Upload plant images and detect diseases instantly with AI-powered analysis for immediate treatment recommendations.",
-      buttonText: "Upload Plant Image",
+      title: t('features.disease.title'),
+      description: t('features.disease.description'),
+      buttonText: t('features.disease.button'),
       buttonVariant: "hero" as const,
     },
     {
       icon: Mic,
-      title: "Voice Support",
-      description: "Ask questions in your own language and get instant AI-powered answers. Supports multiple regional languages.",
-      buttonText: "Try Voice Support",
+      title: t('features.voice.title'),
+      description: t('features.voice.description'),
+      buttonText: t('features.voice.button'),
       buttonVariant: "outline" as const,
     },
     {
       icon: DollarSign,
-      title: "Budget Planning",
-      description: "Get personalized recommendations based on your budget and farming needs for optimal resource allocation.",
-      buttonText: "Plan Budget",
+      title: t('features.budget.title'),
+      description: t('features.budget.description'),
+      buttonText: t('features.budget.button'),
       buttonVariant: "agriculture" as const,
     },
     {
       icon: Sprout,
-      title: "Home Gardening",
-      description: "Perfect for domestic farmers and home vegetable plantation with tailored advice for small-scale farming.",
-      buttonText: "Start Gardening",
+      title: t('features.gardening.title'),
+      description: t('features.gardening.description'),
+      buttonText: t('features.gardening.button'),
       buttonVariant: "default" as const,
     },
   ];
@@ -59,11 +62,10 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Comprehensive Farming Solutions
+            {t('features.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to make informed farming decisions, from government support 
-            to AI-powered insights for sustainable agriculture.
+            {t('features.description')}
           </p>
         </div>
 

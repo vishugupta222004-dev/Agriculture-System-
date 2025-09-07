@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-farming.jpg";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -17,17 +20,16 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Smart Farming for{" "}
-            <span className="text-harvest-orange">Better Harvests</span>
+            {t('hero.title')}{" "}
+            <span className="text-harvest-orange">{t('hero.title.highlight')}</span>
           </h1>
           <p className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto">
-            AI-powered support system for farmers with government schemes, climate predictions, 
-            disease recognition, and personalized recommendations based on your needs and budget.
+            {t('hero.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/schemes">
               <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-                Get Started
+                {t('hero.get-started')}
               </Button>
             </Link>
             <Link to="/climate">
@@ -36,7 +38,7 @@ const HeroSection = () => {
                 size="lg" 
                 className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white/10 hover:text-white"
               >
-                Learn More
+                {t('hero.learn-more')}
               </Button>
             </Link>
           </div>
